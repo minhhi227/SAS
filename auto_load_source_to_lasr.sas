@@ -10,15 +10,15 @@
 options compress=binary fullstimer msglevel=i;
 %global  SMChadoop hadooppath defaultlasrpath host signer port valibHadoop  tag tablePrefix smcva libserver;
 
-   options metaport=8561 metaserver="has-sasnode0"  metarepository=Foundation metauser="sasadm@saspw" metapass="SASpw123";
+   options metaport=8561 metaserver="sas-node0.deltavn.vn"  metarepository=Foundation metauser="sasadm@saspw" metapass="8fBrgSrKD39LBvKaGo1GwoqTwKBqpT";
 
    
    %let SMCVA=Visual Analytics LASR;
    %let SMChadoop=Visual Analytics HDFS;
-   %let hadooppath=/Shared Data/HDFS DATA;
-   %let defaultlasrpath=/Shared Data/SAS Visual Analytics/DATA;
-   %let host=has-sasnode0;
-   %let signer =http://has-sasnode0:7980/SASLASRAuthorization;
+   %let hadooppath=/Shared Data/SAS Visual Analytics/HPT/HDFS;
+   %let defaultlasrpath=/Shared Data/SAS Visual Analytics/HPT/HDFSTOVA;
+   %let host=sas-node0.deltavn.vn;
+   %let signer =http://sas-node0.deltavn.vn:7980/SASLASRAuthorization;
    %let port =10011;
    %let valibHadoop=/hps;
    %let tag=HPS;
@@ -465,3 +465,13 @@ run;
             );
 %mend;
 
+
+libname SDMPROD oracle user=DI_SAS password="3z0gWxvcMy" 
+path=dwproddc DB_LENGTH_SEMANTICS_BYTE=NO DBCLIENT_MAX_BYTES=1 READBUFF=10000;
+LIBNAME XXX '/sasdata/BI';
+LIBNAME TEST '/sasdata/data';
+*%direct_load_lasr(TEST, PHUC_MOB_DEL_REPORT_TEST, test_01, test_01, /Shared Data/SAS Visual Analytics/HPT/HDFSTOVA);
+
+%hadoopbatchrun(TEST, PHUC_MOB_DEL_REPORT_TEST, test_01, test_01, /Shared Data/SAS Visual Analytics/HPT/HDFSTOVA, readahead=yes);
+*%hadoopbatchrun(XXX, PHUC_MOB_DEL_REPORT, test_01, test_01, /Shared Data/SAS Visual Analytics/HPT/HDFSTOVA, readahead=yes);
+*%hadoopbatchrun(SDMPROD, SDM_FIN_LOAN_PARAMETER_SUM, test_02, test_02, /Shared Data/SAS Visual Analytics/HPT/HDFSTOVA, readahead=yes);

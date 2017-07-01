@@ -13,15 +13,15 @@ options compress=binary fullstimer msglevel=i;
    options metaport=8561 metaserver="has-sasnode0"  metarepository=Foundation metauser="sasadm@saspw" metapass="SASpw123";
 
    
-   %let SMCVA=Visual Analytics LASR;
-   %let SMChadoop=Visual Analytics HDFS;
+   %let SMCVA=SYSTEM Visual Analytics LASR;
+   %let SMChadoop=SYSTEM Visual Analytics HDFS;
    %let hadooppath=/Shared Data/HDFS DATA;
    %let defaultlasrpath=/Shared Data/SAS Visual Analytics/DATA;
    %let host=has-sasnode0;
    %let signer =http://has-sasnode0:7980/SASLASRAuthorization;
-   %let port =10011;
-   %let valibHadoop=/hps;
-   %let tag=HPS;
+   %let port =10041;
+   %let valibHadoop=/sys;
+   %let tag=SYS;
    %let tablePrefix=;
    %let libserver =;
 
