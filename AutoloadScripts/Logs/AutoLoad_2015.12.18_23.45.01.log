@@ -1,0 +1,354 @@
+NOTE: Log file opened at Fri, 18 Dec 2015 23:45:01.371
+1                                                          The SAS System                            23:45 Friday, December 18, 2015
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M2 MBCS3170) 
+      Licensed to VIETNAM PROSPERITY BANK, Site 11002698.
+NOTE: This session is executing on the Linux 2.6.32-431.el6.x86_64 (LIN X64) platform.
+
+
+
+WARNING: Your system is scheduled to expire on January 14, 2016, which is 27 days from now. The SAS System will no longer function 
+         on or after that date. Please contact your SAS Installation Representative to obtain your updated SAS Installation Data 
+         (SID) file, which includes SETINIT information.
+To locate the name of your SAS Installation Representative go to http://support.sas.com/repfinder and provide your site number 
+11002698 and company name as VIETNAM PROSPERITY BANK. On the SAS REP list provided, locate the REP for operating system LIN X64.
+NOTE: Additional host information:
+
+ Linux LIN X64 2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013 x86_64 CentOS release 6.5 (Final) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+WARNING: The Base SAS Software product with which IOM CLSID:6E56FD51-CFC1-11D5-87BD-00C04F38F0DB is associated will be expiring 
+         soon, and is currently in warning mode to indicate this upcoming expiration. Please run PROC SETINIT to obtain more 
+         information on your warning period.
+NOTE: Libref SASDATA successfully assigned from logical server.
+NOTE: Libref valib successfully assigned from logical server.
+NOTE: Libref stpsamp successfully assigned from logical server.
+
+NOTE: AUTOEXEC processing beginning; file is /opt/sasenv/config/Lev1/SASApp/appserver_autoexec.sas.
+
+
+NOTE: AUTOEXEC processing completed.
+
+1          /*
+2           * AutoLoad
+3           *
+4           * Purpose: Synchronizes SAS data sets placed in a single disk location with
+5           *			a single LASR Analytic Server library defined in metadata.
+6           *
+7           */
+8          
+2                                                          The SAS System                            23:45 Friday, December 18, 2015
+
+9          /* Set the name of the LASR library to which to Auto Load */
+10         %LET AL_META_LASRLIB=Visual Analytics Autoload LASR;
+11         
+12         /* Include and execute main AutoLoad functionality */
+13         %LET
+13       ! INCLUDELOC=/opt/sasenv/sashome/SASVisualAnalyticsHighPerformanceConfiguration/7.1/Config/Deployment/Code/AutoLoad/include
+13       ! ;
+14         
+15         /* ------- No edits necessary below this line -------- */
+16         filename inclib "&INCLUDELOC.";
+17         %include inclib ( AutoLoadMain.sas );
+3662       %AutoLoadMain;
+VA.AutoLoad.Location =/data/AutoloadData
+
+va.monitoringPath=/opt/sasenv/config/Lev1/Applications/SASVisualAnalytics/VisualAnalyticsAdministrator/Monitoring
+NOTE: DATA statement used (Total process time):
+      real time           0.16 seconds
+      cpu time            0.08 seconds
+      
+
+
+NOTE: The file 
+      "/opt/sasenv/config/Lev1/Applications/SASVisualAnalytics/VisualAnalyticsAdministrator/Monitoring/PIDs/autoload_VisualAnalytics
+      AutoloadLASR.pid" is:
+      
+      Filename=/opt/sasenv/config/Lev1/Applications/SASVisualAnalytics/VisualAnalyticsAdministrator/Monitoring/PIDs/autoload_VisualA
+      nalyticsAutoloadLASR.pid,
+      Owner Name=sasinst,Group Name=sasinst,
+      Access Permission=-rw-rw-rw-,
+      Last Modified=18Dec2015:23:45:01
+
+NOTE: 1 record was written to the file 
+      "/opt/sasenv/config/Lev1/Applications/SASVisualAnalytics/VisualAnalyticsAdministrator/Monitoring/PIDs/autoload_VisualAnalytics
+      AutoloadLASR.pid".
+      The minimum record length was 4.
+      The maximum record length was 4.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: Libref DBLOG was successfully assigned as follows: 
+      Engine:        BASE 
+      Physical Name: /data/AutoloadData/Logs
+NOTE: LASR Auto Load 7.1
+NOTE: Task Name: AUTOLOAD
+NOTE: Process ID: 7378
+NOTE: Configuration Settings:
+VA.AutoLoad.Enabled =Yes
+VA.Default.MetadataFolder =/Shared Data/SAS Visual Analytics/AutoLoadTest
+VA.AutoLoad.AutoStart =Yes
+VA.AutoLoad.Sync.Enabled =Yes
+VA.AutoLoad.Sync.Import =Yes
+VA.AutoLoad.Sync.Load =Yes
+VA.AutoLoad.Sync.Unload =Yes
+VA.AutoLoad.Sync.Refresh =Yes
+VA.AutoLoad.Sync.Append =Yes
+VA.AutoLoad.Debug.Enabled =No
+3                                                          The SAS System                            23:45 Friday, December 18, 2015
+
+NOTE: Loading library attributes...
+
+SASIOLA library Visual Analytics Autoload LASR
+      LIBREF=AUTOLIB
+SASClientConnection
+      Port 10031
+      SIGNER=http://hsi-vaclone-srv:7980/SASLASRAuthorization
+      HOST=hsi-vaclone-srv
+ServerComponent Public LASR-hsi-vaclone-srv
+      SMP=1
+      INSTALL=/opt/TKGrid
+      TABLEMEM =80
+      PATH=/tmp
+BASE library SASApp-Autoload
+      LIBREF=SASAUTO
+      PATH=/data/sas-library
+NOTE: The data set WORK.LASRLIB has 1 observations and 33 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+AL_LIBID = A5O70T9G.AC000470
+AL_DPLIBID = A5O70T9G.B500000G
+AL_LIBNAME = Visual Analytics Autoload LASR
+AL_DPLIBNAME = SASApp-Autoload
+AL_LIBENGINE = SASIOLA
+AL_DPLIBENGINE = BASE
+AL_LIBREF = AUTOLIB
+AL_DPLIBREF = SASAUTO
+AL_LIBTAG = WORK
+AL_SMP = 1
+AL_LASRHOST = hsi-vaclone-srv
+AL_LASRPORT = 10031
+AL_SIGNER = http://hsi-vaclone-srv:7980/SASLASRAuthorization
+AL_LASRINST = /opt/TKGrid
+AL_PATH = /tmp
+AL_DPPATH = /data/sas-library
+AL_FORCE =
+AL_NODES =
+AL_TABLEMEM = 80
+AL_EXTERNALMEM =
+AL_LIFETIME =
+AL_LOGGINGENABLED =
+AL_LOGGINGPATH =
+AL_LOGGINGMAXFILESIZE =
+AL_LOGGINGMAXROLLOVER =
+AL_LOGGINGKEEPLOG =
+4                                                          The SAS System                            23:45 Friday, December 18, 2015
+
+AL_LOGGINGADDITIONAL =
+AL_SERVERVERBOSE =
+AL_ROS_ENABLED = Yes
+AL_ROS_TBLDEFAULT = Yes
+AL_ROS_METHOD = All
+AL_METAFOLDER = /Shared Data/SAS Visual Analytics/AutoLoadTest
+AL_SERVNAME = Public LASR-hsi-vaclone-srv
+NOTE: Connecting to LASR server hsi-vaclone-srv:10031
+NOTE: If the server is not running, an ERROR could appear here.
+NOTE: Libref LASRTEST was successfully assigned as follows: 
+      Engine:        SASIOLA 
+      Physical Name: SAS LASR Analytic Server engine on local host, port 10031
+NOTE: Libref LASRTEST has been deassigned.
+NOTE: LASR server hsi-vaclone-srv:10031 is running
+NOTE: Examining /data/AutoloadData content
+NOTE: Libref DB was successfully assigned as follows: 
+      Engine:        BASE 
+      Physical Name: /data/AutoloadData
+NOTE: Libref DBAPPEND was successfully assigned as follows: 
+      Engine:        BASE 
+      Physical Name: /data/AutoloadData/Append
+NOTE: Libref DBUNLOAD was successfully assigned as follows: 
+      Engine:        BASE 
+      Physical Name: /data/AutoloadData/Unload
+NOTE: Libref DBFORMAT was successfully assigned as follows: 
+      Engine:        BASE 
+      Physical Name: /data/AutoloadData/Formats
+WARNING: No matching members in directory.
+WARNING: Output 'members' was not created.  Make sure that the output object name, label, or path is spelled correctly.  Also, 
+         verify that the appropriate procedure options are used to produce the requested output object.  For example, verify that 
+         the NOPRINT option is not used.
+NOTE: FMTSEARCH=( APFMTLIB WORK LIBRARY )
+NOTE: SCANNING INPUT FOLDERS
+
+NOTE: There were 0 observations read from the data set WORK.SCANADDF.
+NOTE: The data set WORK.SCANADDF has 0 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 0 observations read from the data set WORK.SCANAPDF.
+NOTE: The data set WORK.SCANAPDF has 0 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: Examining LASR tables to append
+NOTE: If no append tables are present, it is normal to receive a WARNING here.
+WARNING: No matching members in directory.
+WARNING: Output 'members' was not created.  Make sure that the output object name, label, or path is spelled correctly.  Also, 
+         verify that the appropriate procedure options are used to produce the requested output object.  For example, verify that 
+         the NOPRINT option is not used.
+
+NOTE: There were 0 observations read from the data set WORK.SCANUNLF.
+NOTE: The data set WORK.SCANUNLF has 0 observations and 7 variables.
+5                                                          The SAS System                            23:45 Friday, December 18, 2015
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: Examining LASR tables to unload
+NOTE: If no unload tables are present, it is normal to receive a WARNING here.
+WARNING: No matching members in directory.
+WARNING: Output 'members' was not created.  Make sure that the output object name, label, or path is spelled correctly.  Also, 
+         verify that the appropriate procedure options are used to produce the requested output object.  For example, verify that 
+         the NOPRINT option is not used.
+NOTE: Examining loaded LASR tables
+NOTE: If no tables are loaded, it is normal to receive a WARNING here.
+NOTE: Libref AUTOLIB was successfully assigned as follows: 
+      Engine:        SASIOLA 
+      Physical Name: SAS LASR Analytic Server engine on local host, port 10031
+NOTE: Building actions list
+--------------------------------------------------------
+NOTE: SCANNING /data/AutoloadData
+NO FILES
+TABLES:
+      HPT_FULL
+--------------------------------------------------------
+NOTE: SCANNING /data/AutoloadData/Append
+NO FILES
+NO TABLES
+--------------------------------------------------------
+NOTE: SCANNING /data/AutoloadData/Unload
+NO FILES
+NO TABLES
+--------------------------------------------------------
+NOTE: SCANNING LASR SERVER
+TABLES:
+      HPT_FULL
+--------------------------------------------------------
+NOTE: IMPORT
+NO NEW FILES TO IMPORT
+--------------------------------------------------------
+NOTE: LOAD
+NO NEW TABLES TO LOAD TO LASR
+--------------------------------------------------------
+NOTE: REFRESH
+NO TABLES TO REFRESH IN LASR
+--------------------------------------------------------
+NOTE: APPEND
+NO TABLES TO APPEND TO LASR
+--------------------------------------------------------
+NOTE: UNLOAD
+NO CURRENTLY LOADED LASR TABLES TO UNLOAD
+--------------------------------------------------------
+NOTE: SCANNING INPUT FOLDERS
+
+NOTE: There were 0 observations read from the data set WORK.SCANADDF.
+NOTE: The data set WORK.SCANADDF has 0 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+6                                                          The SAS System                            23:45 Friday, December 18, 2015
+
+
+
+NOTE: There were 0 observations read from the data set WORK.SCANAPDF.
+NOTE: The data set WORK.SCANAPDF has 0 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: Examining LASR tables to append
+NOTE: If no append tables are present, it is normal to receive a WARNING here.
+WARNING: No matching members in directory.
+WARNING: Output 'members' was not created.  Make sure that the output object name, label, or path is spelled correctly.  Also, 
+         verify that the appropriate procedure options are used to produce the requested output object.  For example, verify that 
+         the NOPRINT option is not used.
+
+NOTE: There were 0 observations read from the data set WORK.SCANUNLF.
+NOTE: The data set WORK.SCANUNLF has 0 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: Examining LASR tables to unload
+NOTE: If no unload tables are present, it is normal to receive a WARNING here.
+WARNING: No matching members in directory.
+WARNING: Output 'members' was not created.  Make sure that the output object name, label, or path is spelled correctly.  Also, 
+         verify that the appropriate procedure options are used to produce the requested output object.  For example, verify that 
+         the NOPRINT option is not used.
+NOTE: Examining loaded LASR tables
+NOTE: If no tables are loaded, it is normal to receive a WARNING here.
+NOTE: Libref AUTOLIB was successfully assigned as follows: 
+      Engine:        SASIOLA 
+      Physical Name: SAS LASR Analytic Server engine on local host, port 10031
+NOTE: Building actions list
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: LASR Auto Load 7.1 completed at December 18, 2015 11:45:03 PM
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.42 seconds
+      cpu time            1.14 seconds
+      
+
+NOTE: Log file closing at Fri, 18 Dec 2015 23:45:02.788
+
